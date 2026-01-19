@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import { Droplet, Plus, Trash2 } from 'lucide-react'
+import { Droplet, Plus } from 'lucide-react'
 import './FormRecoleccion.css'
 
 export default function FormRecoleccion() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import { Calendar, Download, RotateCcw, Printer } from 'lucide-react'
+import { Calendar, RotateCcw, Printer } from 'lucide-react'
 import './ReporteVisual.css'
 
 export default function ReporteVisual() {
