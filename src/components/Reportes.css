@@ -1,0 +1,478 @@
+.reportes-container {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reportes-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1.5rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.reportes-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.reportes-header p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* FORMULARIO FILTRO */
+.filtro-form {
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 2px solid #e0e7ff;
+}
+
+.filtro-form h3 {
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+}
+
+.fecha-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.input-group input[type="date"] {
+  padding: 0.85rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s;
+  background: white;
+}
+
+.input-group input[type="date"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.botones-grupo {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-generar {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-generar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.btn-generar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-limpiar {
+  background: white;
+  color: #667eea;
+  padding: 0.9rem 1.5rem;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.btn-limpiar:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* RESULTADO DEL REPORTE */
+.reporte-resultado {
+  margin-top: 2rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reporte-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.info-content h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.info-detalles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.info-detalles p {
+  margin: 0;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.info-detalles strong {
+  opacity: 0.9;
+  font-size: 0.85rem;
+}
+
+.total-registros {
+  grid-column: 1;
+}
+
+.sin-datos {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* TABLA */
+.tabla-scroll {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-reportes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabla-reportes thead {
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+  border-bottom: 2px solid #667eea;
+}
+
+.tabla-reportes th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-right: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.tabla-reportes th:last-child {
+  border-right: none;
+}
+
+.tabla-reportes td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.tabla-reportes td:last-child {
+  border-right: none;
+}
+
+.tabla-reportes tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.tabla-reportes td.numero {
+  text-align: right;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Courier New', monospace;
+}
+
+.tabla-reportes td.codigo {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.tabla-reportes td.tienda {
+  font-weight: 500;
+}
+
+.tabla-reportes td.observaciones {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* BADGES ESTADO */
+.badge-estado {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.badge-estado.nuevo {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge-estado.filtrado {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.badge-estado.usado {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* FILA TOTALES */
+.tabla-reportes tfoot {
+  background: white;
+  border-top: 2px solid #667eea;
+}
+
+.tabla-reportes tfoot tr.totales {
+  font-weight: 600;
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+  border-top: 2px solid #667eea;
+}
+
+.tabla-reportes tfoot td {
+  padding: 1.2rem 1rem;
+  border-bottom: none;
+}
+
+.label-totales {
+  text-align: right;
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.total-valor {
+  background: #e7f0ff;
+  border-radius: 4px;
+  color: #667eea;
+}
+
+/* BOTONES EXPORTAR */
+.botones-exportar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.btn-export {
+  background: #27ae60;
+  color: white;
+  padding: 0.85rem 1.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-export:hover {
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 174, 96, 0.4);
+}
+
+/* RESUMEN DATOS */
+.resumen-datos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.resumen-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.resumen-card h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.resumen-card .valor {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .reportes-container {
+    padding: 1rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reportes-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .filtro-form {
+    padding: 1.5rem;
+  }
+
+  .fecha-group {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .botones-grupo {
+    flex-direction: column;
+  }
+
+  .btn-generar,
+  .btn-limpiar {
+    width: 100%;
+  }
+
+  .info-detalles {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tabla-reportes {
+    font-size: 0.8rem;
+  }
+
+  .tabla-reportes th,
+  .tabla-reportes td {
+    padding: 0.6rem 0.5rem;
+  }
+
+  .botones-exportar {
+    justify-content: center;
+  }
+
+  .btn-export {
+    width: 100%;
+  }
+
+  .resumen-datos {
+    grid-template-columns: 1fr;
+  }
+
+  .tabla-scroll {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .reportes-container {
+    padding: 0.75rem;
+  }
+
+  .reportes-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .reportes-header p {
+    font-size: 0.85rem;
+  }
+
+  .filtro-form {
+    padding: 1rem;
+  }
+
+  .tabla-reportes {
+    font-size: 0.75rem;
+  }
+
+  .tabla-reportes th,
+  .tabla-reportes td {
+    padding: 0.4rem 0.3rem;
+  }
+
+  .resumen-card .valor {
+    font-size: 1.4rem;
+  }
+}
