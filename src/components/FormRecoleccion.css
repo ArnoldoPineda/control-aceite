@@ -1,305 +1,94 @@
 .form-container {
-  background: white;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: 0 auto;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 1.5rem;
+  gap: 15px;
+  color: white;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
 }
 
 .form-header h1 {
   margin: 0;
-  font-size: 1.8rem;
-  color: #333;
-  flex: 1;
-}
-
-.form-header p.lugar-info {
-  margin: 0;
-  color: #999;
-  font-size: 0.85rem;
-}
-
-/* HEADER DEL LUGAR */
-.lugar-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.lugar-header h2 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
-}
-
-.codigo-tienda {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-}
-
-/* MENSAJE DE ÉXITO */
-.mensaje-exito {
-  background: #d4edda;
-  color: #155724;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-weight: 500;
-  border-left: 4px solid #155724;
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ACEITE FIJO */
-.aceite-fijo {
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 2rem;
-  border-left: 4px solid #667eea;
-}
-
-.aceite-fijo p {
-  margin: 0;
-  color: #333;
-  font-size: 1rem;
-}
-
-.aceite-fijo strong {
-  color: #667eea;
+  font-size: 28px;
   font-weight: 600;
 }
 
-/* CONTENEDOR DE BIDONES */
-.bidones-container {
-  background: #fafafa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  border: 2px solid #f0f0f0;
+.form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
-.label-unidad {
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
   display: block;
+  margin-bottom: 8px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+  font-size: 14px;
 }
 
-.bidon-row {
-  display: grid;
-  grid-template-columns: 100px 1fr 40px;
-  gap: 0.75rem;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.bidon-label {
-  font-weight: 500;
-  color: #555;
-  font-size: 0.95rem;
-  padding: 0.5rem 0;
-}
-
-.bidon-input {
-  padding: 0.75rem;
-  border: 2px solid #ddd;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
   border-radius: 6px;
-  font-size: 1rem;
-  font-family: 'Courier New', monospace;
-  font-weight: 500;
-  transition: all 0.3s;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  font-family: inherit;
 }
 
-.bidon-input:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-  background: #fff;
 }
 
-.bidon-input::placeholder {
-  color: #ccc;
+.form-group textarea {
+  resize: vertical;
 }
 
-.btn-eliminar {
-  background: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  min-width: 40px;
-  min-height: 40px;
-}
-
-.btn-eliminar:hover {
-  background: #ee5a52;
-  transform: scale(1.05);
-}
-
-/* TOTAL SECTION */
-.total-section {
-  margin-bottom: 2rem;
-}
-
-.total-card {
+.btn-submit {
+  width: 100%;
+  padding: 14px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
-}
-
-.total-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  opacity: 0.95;
-}
-
-.total-valor {
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: 'Courier New', monospace;
-}
-
-/* BOTONES */
-.botones-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn-anterior,
-.btn-guardar {
-  padding: 0.85rem 1.5rem;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn-anterior {
-  background: #f0f0f0;
-  color: #333;
-  border: 2px solid #ddd;
-}
-
-.btn-anterior:hover:not(:disabled) {
-  background: #e0e0e0;
-  border-color: #999;
-}
-
-.btn-anterior:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.btn-guardar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.btn-guardar:hover:not(:disabled) {
+.btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
 }
 
-.btn-guardar:disabled {
-  opacity: 0.5;
+.btn-submit:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
-  transform: none;
-}
-
-/* PROGRESO BAR */
-.progreso-bar {
-  height: 6px;
-  background: #f0f0f0;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-.progreso-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  transition: width 0.3s ease;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .form-container {
-    padding: 1.5rem;
-  }
-
-  .form-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
-  }
-
-  .form-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .bidon-row {
-    grid-template-columns: 80px 1fr 35px;
-    gap: 0.5rem;
-  }
-
-  .botones-section {
-    grid-template-columns: 1fr;
-  }
-
-  .total-card {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-
-  .total-valor {
-    font-size: 1.5rem;
-  }
 }
