@@ -1,5 +1,5 @@
 .dashboard-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 30px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -14,7 +14,7 @@
   color: white;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 2px solid rgba(255,255,255,0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .dashboard-header h1 {
@@ -23,6 +23,7 @@
   font-weight: 600;
 }
 
+/* ============ TARJETAS DE ESTADÍSTICAS ============ */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -34,58 +35,149 @@
   background: white;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
 }
 
 .stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card:hover::before {
+  left: 100%;
 }
 
 .stat-icon {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  flex-shrink: 0;
 }
 
 .stat-card.total .stat-icon {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.stat-card.tipos .stat-icon {
+.stat-card.ciclos .stat-icon {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-.stat-card.lugares .stat-icon {
+.stat-card.promedio .stat-icon {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.stat-card.centros .stat-icon {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
 }
 
 .stat-content h3 {
   margin: 0 0 8px 0;
-  color: #666;
-  font-size: 14px;
+  color: #999;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  font-weight: 600;
 }
 
 .stat-value {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ============ ÚLTIMO CICLO ============ */
+.ultimo-ciclo-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border-left: 5px solid #667eea;
+}
+
+.ultimo-ciclo-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ciclo-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.ciclo-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.ciclo-detalle .label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.ciclo-detalle .valor {
+  font-size: 16px;
   font-weight: 700;
   color: #333;
 }
 
+.ciclo-detalle .estado {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.ciclo-detalle .estado.abierto {
+  background: rgba(52, 211, 153, 0.2);
+  color: #059669;
+}
+
+.ciclo-detalle .estado.cerrado {
+  background: rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+/* ============ GRÁFICOS ============ */
 .charts-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
 }
@@ -94,7 +186,7 @@
   background: white;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .chart-box h2 {
@@ -103,29 +195,116 @@
   color: #333;
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 12px;
+  font-weight: 700;
 }
 
+/* TOP 3 CENTROS */
+.top-centros-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top-centro-item {
+  display: grid;
+  grid-template-columns: 50px 1fr 100px;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.top-centro-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.top-posicion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+
+.top-centro-item:nth-child(1) .top-posicion {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+}
+
+.top-centro-item:nth-child(2) .top-posicion {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+  color: #333;
+}
+
+.top-centro-item:nth-child(3) .top-posicion {
+  background: linear-gradient(135deg, #cd7f32 0%, #e8a35d 100%);
+  color: white;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top-nombre {
+  font-weight: 700;
+  color: #333;
+  font-size: 15px;
+}
+
+.top-barra {
+  height: 25px;
+  background: #e8e8e8;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.top-relleno {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.5s ease;
+}
+
+.top-valor {
+  font-size: 14px;
+  font-weight: 700;
+  color: #667eea;
+  text-align: right;
+}
+
+/* DISTRIBUCIÓN POR CENTRO */
 .chart-items {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .chart-item {
   display: grid;
-  grid-template-columns: 100px 1fr 60px;
+  grid-template-columns: 140px 1fr 80px;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .chart-label {
   font-size: 14px;
   color: #666;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .chart-bar {
-  height: 30px;
+  height: 28px;
   background: #f0f0f0;
   border-radius: 6px;
   overflow: hidden;
@@ -135,6 +314,23 @@
   height: 100%;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   transition: width 0.5s ease;
+  position: relative;
+}
+
+.chart-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .chart-value {
@@ -144,35 +340,134 @@
   text-align: right;
 }
 
+/* TIPOS DE ACEITE */
+.tipos-aceite {
+  grid-column: 1 / -1;
+}
+
+.sin-datos {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* ============ BOTÓN ACTUALIZAR ============ */
 .btn-refresh {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   background: white;
   color: #667eea;
   border: 2px solid white;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-refresh::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
 }
 
 .btn-refresh:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
+.btn-refresh:hover::before {
+  left: 100%;
+}
+
+.btn-refresh:active {
+  transform: translateY(-1px);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
   .charts-section {
     grid-template-columns: 1fr;
   }
-  
+
   .chart-item {
-    grid-template-columns: 80px 1fr 50px;
+    grid-template-columns: 120px 1fr 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 15px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ciclo-info {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-item {
+    grid-template-columns: 100px 1fr 60px;
+  }
+
+  .top-centro-item {
+    grid-template-columns: 45px 1fr 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 15px 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .chart-item {
+    grid-template-columns: 80px 1fr 55px;
+    gap: 8px;
+  }
+
+  .chart-label {
+    font-size: 12px;
+  }
+
+  .chart-value {
+    font-size: 12px;
   }
 }
